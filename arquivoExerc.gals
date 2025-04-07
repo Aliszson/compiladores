@@ -1,0 +1,51 @@
+#Options
+GenerateScanner = true
+GenerateParser = false
+Language = Java
+ScannerName = Lexico
+ScannerCaseSensitive = true
+ScannerTable = Full
+Input = Stream
+#RegularDefinitions
+LETRA: [a-zA-Z]
+CARACTERES: [^\t]
+DIGITO: [0-9]
+TIPO: "int" | "string"
+OP:  "+" | "-" | "/" | "*"
+COMENT: "#"
+OPELOGIC: "<" | ">" | "==" | "!=" | "<=" | ">=" | "!" | "||" | "&" | "(" | ")"
+ATRIBU: "="
+MARCADOR: """"
+ESCREVA: escreva
+LEIA: leia
+
+#Tokens
+//operadores
+
+
+//token
+ATRIBUTO: {TIPO}
+ESCREVA: {ESCREVA}
+LEIA: {LEIA}
+ID: {LETRA} ( {LETRA} | {DIGITO} )*
+
+IF = ID: "if"
+ELSE = ID: "else"
+ELIF = ID: "elif"
+FOR = ID: "id"
+WHILE = ID: "while"
+FUNCAO = ID: "function"
+
+//ATRIBUiCAO: {TIPO} ({LETRA} ( {LETRA} | {DIGITO} )*) {ATRIBU} ( {LETRA} | {DIGITO} )*
+INT: {DIGITO}+
+STRING: {MARCADOR} {CARACTERES}* {MARCADOR}
+FLOAT: {DIGITO}+.{DIGITO}+
+OPERADOR: {OP}*
+COMENTARIO: {COMENT} ( {LETRA}* | {DIGITO}* )?
+LOGICO: {OPELOGIC}
+ATRIBUICAO: {ATRIBU}
+
+
+
+// ignorar
+: [" "\t\n\r]*
