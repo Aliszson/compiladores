@@ -1,14 +1,14 @@
 # Nome do executável
-PROG = calculadora
+PROG = analisador_lexico
 
 # Arquivo fonte do FLEX
-LEX = calculadora.l
+LEX = analisador_lexico.l
 
 # Comandos
 all:
 	flex $(LEX)
 	gcc lex.yy.c -o $(PROG) -lfl
-	./calculadora
+	./analisador_lexico
 
 run: all
 	./$(PROG)
